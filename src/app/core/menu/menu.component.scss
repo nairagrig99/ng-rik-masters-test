@@ -1,0 +1,47 @@
+.aside-menu {
+  background: #666F78;
+  color: #FFFFFF;
+  height: 100vh;
+  font-family: sans-serif;
+  width: 273px;
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 20px 45px 2px 45px;
+    }
+
+    li:nth-child(1) {
+      margin-left: 40px;
+    }
+  }
+
+  &-line {
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  &_cart {
+    margin-left: 40px;
+    font-size: 13px;
+
+    p:nth-child(1) {
+      border-bottom: 1px solid #FFFFFF;
+      width: fit-content;
+    }
+  }
+
+}

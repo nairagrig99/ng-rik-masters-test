@@ -1,0 +1,21 @@
+.main {
+  width: 100%;
+  align-items: center;
+
+  &_content {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+
+    &_sidenav-content {
+      height: calc(100vh - 40px);
+    }
+
+    &_aside-menu {
+      height: 100vh;
+    }
+  }
+
+
+}
+

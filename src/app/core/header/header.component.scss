@@ -1,0 +1,23 @@
+.header {
+  background-color: #DA2032;
+  padding: 19px;
+
+  &_content {
+    display: flex;
+    justify-content: end;
+
+    &_user-image {
+      background: #C4C4C4;
+      border-radius: 50%;
+    }
+
+    &_user {
+      display: flex;
+      flex-direction: column;
+      color: #FFFFFF;
+      margin: 0 10px;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+  }
+}
