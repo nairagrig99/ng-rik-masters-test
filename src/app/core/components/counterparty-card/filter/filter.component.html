@@ -1,1 +1,85 @@
-<p>filter works!</p>
+<section class="filter">
+
+  <div class="filter_left_side">
+    <button mat-raised-button color="warn">
+      Добавить
+      <mat-icon iconPositionEnd>add</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn">
+      Разблокировать
+      <mat-icon iconPositionEnd>done</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn">
+      Заблокировать
+      <mat-icon iconPositionEnd>close</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <button mat-flat-button disabled>
+      Фильтр
+      <mat-icon>filter_list</mat-icon>
+    </button>
+  </div>
+
+</section>
+
+<section class="field">
+  <mat-card>
+    <mat-card-title>Фильтр</mat-card-title>
+    <mat-card-content>
+      <form class="field_form" [formGroup]="form">
+        <app-input-text
+          [label]="'Логин'"
+          [formControl]="loginControl"
+          errorMsg="Недопустимые символы"
+        >
+        </app-input-text>
+
+        <app-input-text
+          [label]="'Телефон'"
+          [controlType]="'text'"
+          [isNumber]="true"
+          [formControl]="telControl"
+        >
+        </app-input-text>
+        <app-input-text
+          [label]="'Дата создания'"
+          [controlType]="'date'"
+          [formControl]="dateOfCreateControl"
+        >
+        </app-input-text>
+        <app-input-text
+          [label]="'E-mail'"
+          [controlType]="'email'"
+          [formControl]="emailControl"
+          [valid]="emailControl.invalid"
+          errorMsg="Недопустимые символы"
+        >
+        </app-input-text>
+        <app-input-text
+          [label]="'Статус'"
+          [controlType]="'text'"
+          [formControl]="statusControl"
+        >
+        </app-input-text>
+        <app-input-text
+          [label]="'Роль'"
+          [controlType]="'text'"
+          [formControl]="roleControl"
+        >
+        </app-input-text>
+
+        <app-input-text
+          [label]="'Дата изменения'"
+          [controlType]="'date'"
+          [formControl]="dateOfChangeControl"
+        >
+        </app-input-text>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

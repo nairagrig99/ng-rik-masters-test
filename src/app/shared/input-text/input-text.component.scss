@@ -1,0 +1,46 @@
+.input {
+  display: flex;
+  flex-direction: column;
+
+  &_label {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 20px 0 8px 0;
+
+  }
+
+  .drow-invalid-label {
+    color: #FF001F;
+  }
+
+  &-block {
+    width: 212px;
+    position: relative;
+
+    &_text {
+      width: inherit;
+      border-radius: 8px;
+      padding: 7px;
+      border: 1px solid #828C96;
+      position: relative;
+    }
+
+    &_remove {
+      position: absolute;
+      right: -9px;
+      top: 4px;
+    }
+
+  }
+}
+
+input.ng-touched.invalid {
+  border-color: #FF001F;
+  color: #FF001F;
+}
+
+.error-msg {
+  color: #FF001F;
+  font-weight: 500;
+  font-size: 13px;
+}

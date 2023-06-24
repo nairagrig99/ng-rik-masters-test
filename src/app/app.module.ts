@@ -7,7 +7,12 @@ import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule} from "@angular/router";
 import {MainModule} from "./core/main.module";
+import {FormsModule} from "@angular/forms";
+import {NgxMaskModule} from "ngx-mask";
 
+const maskConfig: any = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -20,7 +25,8 @@ import {MainModule} from "./core/main.module";
     CommonModule,
     MainModule,
     AppRoutingModule,
-
+    FormsModule,
+    NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

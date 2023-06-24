@@ -6,9 +6,20 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    children:[
-      // {path:'counterparty-card',component:FilterComponent},
-      // {path:'subagents',component:UserListComponent},
+    children: [
+      {
+        path: 'counterparty-card',
+        redirectTo: 'counterparty-card',
+        pathMatch: 'full'
+      },
+      {
+        path: 'counterparty-card',
+        loadChildren: () => import('../core/components/counterparty-card/counterparty-card.module').then((m) => m.CounterpartyCardModule)
+      },
+      {
+        path: 'subagents',
+        loadChildren: () => import('../core/components/subagents/subagents.module').then((m) => m.SubagentsModule)
+      },
     ]
   },
 ];

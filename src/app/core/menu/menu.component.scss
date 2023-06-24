@@ -11,7 +11,12 @@
 
     li {
       list-style: none;
-      padding: 20px 45px 2px 45px;
+      padding: 20px 45px 13px 45px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     li:nth-child(1) {
@@ -20,6 +25,8 @@
   }
 
   &-line {
+    padding: 0;
+    margin-bottom: 2px;
     border-bottom: 1px solid #FFFFFF;
   }
 
@@ -43,5 +50,8 @@
       width: fit-content;
     }
   }
+}
 
+.active {
+  background-color: #A2A9B1;
 }

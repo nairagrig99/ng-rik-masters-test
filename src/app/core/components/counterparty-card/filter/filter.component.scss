@@ -1,0 +1,36 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+
+  &_left_side button {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    border-radius: 8px !important;
+  }
+}
+
+.field {
+  &_form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+}
+
+mat-icon {
+  border: 1px solid white;
+  border-radius: 50%
+}
+
+:host app-input-text {
+  margin-right: 35px;
+}
+
+mat-card-title {
+  padding: 15px;
+}
+
+
