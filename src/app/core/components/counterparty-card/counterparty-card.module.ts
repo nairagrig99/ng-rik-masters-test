@@ -8,6 +8,12 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {SharedModule} from "../../../shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UserListComponent} from "./user-list/user-list.component";
+import {MatTableModule} from '@angular/material/table';
+import {NgxMaskModule} from "ngx-mask";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {LocalService} from "../../../services/local.service";
 
 const routes: Routes = [
   {
@@ -17,7 +23,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [CounterpartyCardComponent, FilterComponent],
+  declarations: [CounterpartyCardComponent, FilterComponent, UserListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -26,8 +32,13 @@ const routes: Routes = [
     MatCardModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    MatTableModule,
+    NgxMaskModule,
+    MatCheckboxModule,
+    MatPaginatorModule
+  ],
+  providers: []
 })
 
 export class CounterpartyCardModule {

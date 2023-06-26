@@ -8,8 +8,14 @@ import {RouterModule, RouterOutlet} from "@angular/router";
 import {CounterpartyCardModule} from "./components/counterparty-card/counterparty-card.module";
 import {MatButtonModule} from '@angular/material/button';
 import {SharedModule} from "../shared/shared.module";
-import {FormsModule} from "@angular/forms";
 import {NgxMaskModule} from "ngx-mask";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {LocalService} from "../services/local.service";
+import {UserDateMapperService} from "../services/user-date-mapper.service";
+import {UserService} from "../services/user-service";
 
 
 @NgModule({
@@ -22,9 +28,13 @@ import {NgxMaskModule} from "ngx-mask";
     CounterpartyCardModule,
     MatButtonModule,
     SharedModule,
-    FormsModule,
-    NgxMaskModule.forChild()
-  ]
+    NgxMaskModule.forChild(),
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule
+  ],
+  providers: [LocalService, UserDateMapperService, UserService]
 })
 export class MainModule {
 }

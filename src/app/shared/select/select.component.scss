@@ -1,0 +1,17 @@
+.select-option {
+  display: flex;
+  flex-direction: column;
+
+  &_item {
+    width: 230px;
+    border-radius: 8px;
+    padding: 7px;
+  }
+
+  &_label {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 20px 0 8px 0;
+  }
+
+}

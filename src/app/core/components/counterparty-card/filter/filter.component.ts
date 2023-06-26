@@ -1,5 +1,6 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {role, status} from "../../../../shared/model";
 
 
 @Component({
@@ -11,6 +12,8 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 export class FilterComponent implements OnInit {
 
   public form: FormGroup;
+  public status = status;
+  public role = role;
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -49,9 +52,9 @@ export class FilterComponent implements OnInit {
 
   private initForm(): FormGroup {
     return this.formBuilder.group({
-      login: [null, Validators.required],
+      login: [null, [Validators.required, Validators.pattern('^[\\w\'\\-,.][^0-9_!¡?÷?¿/\\\\+=@#$%ˆ&*(){}|~<>;:[\\]]{2,}$')]],
       tel: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]],
       dateOfCreate: [null, Validators.required],
       dateOfChange: [null, Validators.required],
       status: [null, Validators.required],

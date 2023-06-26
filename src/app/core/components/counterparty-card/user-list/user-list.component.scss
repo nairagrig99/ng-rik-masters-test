@@ -1,0 +1,92 @@
+.user-list {
+  margin-top: 36px;
+  border: 1px solid #F5F6F7;
+}
+
+
+th {
+  background: #DA2032 !important;
+  color: white;
+  text-align: center !important;
+
+}
+
+td {
+  text-align: center !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: #282828 !important;
+}
+
+.isDisabled {
+  color: #DA2032 !important;
+}
+
+.isActive {
+  color: #25B553 !important;
+}
+
+.main {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  float: left;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+}
+
+.geekmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  background: white;
+}
+
+
+.geekmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.main input:checked ~ .geekmark:after {
+  display: block;
+}
+
+.main .geekmark:after {
+  left: 8px;
+  bottom: 3px;
+  width: 5px;
+  height: 19px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox {
+  display: flex;
+}
+
+.mat-paginator-navigation-last {
+  display: none !important;
+}
+
+.mat-card-block {
+  display: flex;
+  align-items: center;
+}
+
+mat-paginator {
+  display: flex;
+  justify-content: start;
+}

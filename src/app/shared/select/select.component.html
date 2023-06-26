@@ -1,1 +1,6 @@
-
+<section class="select-option">
+  <label class="select-option_label" for="options"> {{label}}</label>
+  <select id="options" class="select-option_item">
+    <option *ngFor="let option of options">{{option.value}}</option>
+  </select>
+</section>

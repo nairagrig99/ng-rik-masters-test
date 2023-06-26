@@ -2,23 +2,46 @@
   <nav>
     <ul>
       <li>
-        <a routerLink="/main" routerLinkActive="active">
-      <span class="aside-menu-link">
-        Суперагент
-        <span class="aside-menu-link_item">
-          <img src="assets/images/svg/input-arrow-down.svg">
-        </span>
-      </span>
-          <p>Банк ВТБ(ПАО)</p>
+        <a routerLink="/">
+          <div>
+            <div class="aside-menu-link">
+              <img src="assets/images/svg/admin.svg">
+              <span>Иванов И.И</span>
+            </div>
+          </div>
         </a>
       </li>
 
-      <p class="aside-menu-line"></p>
+      <li>
+        <a routerLink="/">
+          <div>
+            <div class="aside-menu-link">
+              <img src="assets/images/svg/managment.svg">
+              <span>Администрирование</span>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li class="aside-menu-line">
+        <a routerLink="/main">
+          <div class="aside-menu-link">
+            <div class="aside-menu-link_superagent">
+              <p>Суперагент</p>
+              <p>Банк ВТБ(ПАО)</p>
+            </div>
+            <div class="aside-menu-link_item">
+              <img src="assets/images/svg/input-arrow-down.svg">
+            </div>
+          </div>
+        </a>
+      </li>
+
       <li routerLinkActive="active">
         <a routerLink="counterparty-card">
           <div>
             <div class="aside-menu-link">
-              <img src="../../../assets/images/svg/remove.svg">
+              <img src="assets/images/svg/pack.svg">
               <span>Управление</span>
             </div>
             <div class="aside-menu_cart">

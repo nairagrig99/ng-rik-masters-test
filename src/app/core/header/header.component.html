@@ -2,9 +2,9 @@
   <div class="header_content">
     <img class="header_content_user-image" src="assets/images/svg/Mask%20Group.svg">
     <div class="header_content_user">
-      <span class="header_content_user-name">Иванов</span>
-      <span class="header_content_user-role">Администратор</span>
+      <span class="header_content_user-name">{{userInfo.name}}</span>
+      <span class="header_content_user-role">{{userInfo.role}}</span>
     </div>
-    <img src="assets/images/svg/input-arrow-down.svg">
+    <img [src]="userInfo.image">
   </div>
 </header>

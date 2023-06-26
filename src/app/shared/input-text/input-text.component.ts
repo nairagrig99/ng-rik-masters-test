@@ -32,34 +32,26 @@ export class InputTextComponent implements ControlValueAccessor {
 
   @Input() errorMsg: string;
 
-  @Input() formControl: FormControl;
-
-  @Input() valid: boolean = false;
-
   @Input() isNumber: boolean = false;
 
   @Output() change: EventEmitter<void> = new EventEmitter();
 
+  public ngControl: NgControl;
   public prefix: string;
-  public control: any;
   public model: string;
 
-  constructor(private injector: Injector) {
+
+  constructor(public inj: Injector) {
+  }
+
+  ngAfterViewInit() {
+    this.ngControl = this.inj.get(NgControl)
   }
 
   onChange: (val: string) => void = () => {
   }
 
   onTouch: (val: string) => void = () => {
-  }
-
-  ngAfterViewInit(): void {
-    // @ts-ignore
-    const ngControl: NgControl = this.injector.get(NgControl, null);
-
-    if (ngControl) {
-      setTimeout(() => (this.control = ngControl.control as FormControl));
-    }
   }
 
   setValue(value: any) {

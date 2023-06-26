@@ -1,6 +1,6 @@
 <div class="input">
   <label class="input_label"
-         [ngClass]="{'drow-invalid-label':control?.invalid && (control?.dirty || control?.touched)}">{{label}} </label>
+         [ngClass]="{'drow-invalid-label':!ngControl?.valid && ngControl?.dirty}">{{label}} </label>
 
   <div class="input-block">
     <input
@@ -8,16 +8,18 @@
       matInput
       [name]="controlName"
       [type]="controlType"
-      [class.invalid]="valid"
+      [class.invalid]="ngControl?.valid"
       (ngModelChange)="modelChange($event)"
       [(ngModel)]="model"
       [prefix]="prefix"
       [mask]="maskChoose"
     />
+
     <div class="input-block_remove" *ngIf="!!model" (click)="removeInputValue()">
-      <img src="./assets/images/svg/remove.svg">
+      <img *ngIf="ngControl?.valid" src="./assets/images/svg/remove.svg">
+      <img *ngIf="!ngControl?.valid" src="./assets/images/svg/failed.svg">
     </div>
   </div>
 
-  <small class="error-msg" *ngIf="control?.invalid && (control?.dirty || control?.touched)">{{errorMsg}}</small>
+  <small class="error-msg" *ngIf="!ngControl?.valid && ngControl?.dirty ">{{errorMsg}}</small>
 </div>

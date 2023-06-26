@@ -1,6 +1,6 @@
 import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {StatusInterface} from "../interface/status.interface";
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {SearchableSelectInterface} from "../interface/status.interface";
 
 @Component({
   selector: 'app-select',
@@ -16,7 +16,11 @@ import {StatusInterface} from "../interface/status.interface";
 })
 export class SelectComponent implements ControlValueAccessor {
 
-  @Input() options: StatusInterface[];
+  @Input() options: SearchableSelectInterface[];
+
+  @Input() label: string;
+
+  @Input() control: FormControl;
 
   registerOnChange(fn: any): void {
   }

@@ -7,7 +7,7 @@ import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule} from "@angular/router";
 import {MainModule} from "./core/main.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskModule} from "ngx-mask";
 
 const maskConfig: any = {
@@ -26,6 +26,7 @@ const maskConfig: any = {
     MainModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [],

@@ -1,10 +1,11 @@
 .header {
-  background-color: #DA2032;
-  padding: 19px;
-
   &_content {
     display: flex;
-    justify-content: end;
+    line-height: 16px;
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
 
     &_user-image {
       background: #C4C4C4;

@@ -1,10 +1,26 @@
 .filter {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   &_left_side button {
     margin-right: 15px;
     margin-bottom: 15px;
+  }
+
+  &_bottom_side {
+    margin: 15px 30px;
+
+    button {
+      background-color: lightgray;
+      margin-right: 15px;
+
+      &:hover {
+        background-color: red;
+        color: white;
+      }
+    }
+
   }
 
   button {
@@ -20,12 +36,12 @@
   }
 }
 
-mat-icon {
+mat-icon:not(.filter-icon) {
   border: 1px solid white;
   border-radius: 50%
 }
 
-:host app-input-text {
+:host app-input-text, app-select {
   margin-right: 35px;
 }
 

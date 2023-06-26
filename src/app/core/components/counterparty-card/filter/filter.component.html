@@ -20,7 +20,7 @@
   <div>
     <button mat-flat-button disabled>
       Фильтр
-      <mat-icon>filter_list</mat-icon>
+      <mat-icon class="filter-icon">filter_list</mat-icon>
     </button>
   </div>
 
@@ -42,7 +42,6 @@
           [label]="'Телефон'"
           [controlType]="'text'"
           [isNumber]="true"
-          [formControl]="telControl"
         >
         </app-input-text>
         <app-input-text
@@ -55,31 +54,48 @@
           [label]="'E-mail'"
           [controlType]="'email'"
           [formControl]="emailControl"
-          [valid]="emailControl.invalid"
           errorMsg="Недопустимые символы"
         >
         </app-input-text>
-        <app-input-text
-          [label]="'Статус'"
-          [controlType]="'text'"
-          [formControl]="statusControl"
-        >
-        </app-input-text>
-        <app-input-text
+        <app-select
           [label]="'Роль'"
-          [controlType]="'text'"
-          [formControl]="roleControl"
+          [options]="role"
+          [control]="roleControl"
         >
-        </app-input-text>
+        </app-select>
+
+        <app-select
+          [label]="'Статус'"
+          [options]="status"
+          [control]="statusControl"
+        >
+        </app-select>
 
         <app-input-text
           [label]="'Дата изменения'"
           [controlType]="'date'"
-          [formControl]="dateOfChangeControl"
         >
         </app-input-text>
 
       </form>
     </mat-card-content>
+    <div class="filter_bottom_side">
+      <button mat-raised-button>
+        Применить
+      </button>
+
+      <button mat-raised-button>
+        Отмена
+      </button>
+
+      <button mat-raised-button>
+        Сбросить
+      </button>
+    </div>
   </mat-card>
+
+</section>
+
+<section>
+  <app-user-list></app-user-list>
 </section>

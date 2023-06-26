@@ -7,12 +7,14 @@ import {NgxMaskModule} from "ngx-mask";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   declarations: [InputTextComponent, SelectComponent],
   exports: [
-    InputTextComponent
+    InputTextComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     NgxMaskModule.forChild(),
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {
