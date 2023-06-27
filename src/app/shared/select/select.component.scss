@@ -3,9 +3,12 @@
   flex-direction: column;
 
   &_item {
-    width: 230px;
+    width: 248px;
     border-radius: 8px;
-    padding: 7px;
+    padding: 11px 7px;
+    @media screen and (min-width: 500px) and (max-width: 900px) {
+      width: 307px;
+    }
   }
 
   &_label {

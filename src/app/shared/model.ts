@@ -1,4 +1,3 @@
-import {UserListItem} from "./interface/user-list.interface";
 import {CurrentUserInterface} from "./interface/current-user.interface";
 
 export const status = [

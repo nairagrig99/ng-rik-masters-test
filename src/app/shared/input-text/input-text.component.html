@@ -1,11 +1,15 @@
 <div class="input">
   <label class="input_label"
-         [ngClass]="{'drow-invalid-label':!ngControl?.valid && ngControl?.dirty}">{{label}} </label>
+         [ngClass]="
+         {'drow-invalid-label': !ngControl?.valid && ngControl?.dirty}">
+    {{label}}
+  </label>
 
   <div class="input-block">
     <input
       class="input-block_text"
       matInput
+      autocomplete="off"
       [name]="controlName"
       [type]="controlType"
       [class.invalid]="ngControl?.valid"

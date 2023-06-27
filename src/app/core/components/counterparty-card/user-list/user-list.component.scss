@@ -77,13 +77,10 @@ input[type=checkbox] {
   display: flex;
 }
 
-.mat-paginator-navigation-last {
-  display: none !important;
-}
-
 .mat-card-block {
   display: flex;
   align-items: center;
+  padding: 15px 45px;
 }
 
 mat-paginator {

@@ -13,7 +13,6 @@ import {MatTableModule} from '@angular/material/table';
 import {NgxMaskModule} from "ngx-mask";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import {LocalService} from "../../../services/local.service";
 
 const routes: Routes = [
   {
@@ -37,6 +36,9 @@ const routes: Routes = [
     NgxMaskModule,
     MatCheckboxModule,
     MatPaginatorModule
+  ],
+  exports: [
+    CounterpartyCardComponent
   ],
   providers: []
 })

@@ -20,6 +20,7 @@ export interface UserListItem {
   create_at: Date,
   update_at: Date,
   ept:boolean,
+  checked?:boolean
 }
 
 export interface Data {

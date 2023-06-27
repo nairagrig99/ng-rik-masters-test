@@ -6,21 +6,19 @@
     font-weight: 700;
     font-size: 16px;
     margin: 20px 0 8px 0;
-
-  }
-
-  .drow-invalid-label {
-    color: #FF001F;
   }
 
   &-block {
-    width: 212px;
+    width: 230px;
     position: relative;
+    @media screen and (min-width: 500px) and (max-width: 900px) {
+      width: 292px;
+    }
 
     &_text {
       width: inherit;
       border-radius: 8px;
-      padding: 7px;
+      padding: 11px 7px;
       border: 1px solid #828C96;
       position: relative;
     }
@@ -28,7 +26,7 @@
     &_remove {
       position: absolute;
       right: -9px;
-      top: 4px;
+      top: 9px;
     }
 
   }
@@ -36,6 +34,10 @@
 
 input.ng-touched.invalid {
   border-color: #FF001F;
+  color: #FF001F;
+}
+
+.drow-invalid-label {
   color: #FF001F;
 }
 

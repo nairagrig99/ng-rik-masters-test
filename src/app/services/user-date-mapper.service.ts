@@ -16,7 +16,8 @@ export class UserDateMapperService {
       status: us?.status ?? statusEnum.BLOCKED,
       update_at: new Date(us.update_at),
       create_at: new Date(us.create_at),
-      ept: us.ept ?? false
+      ept: us.ept ?? false,
+      checked: false
     }
   }
 }

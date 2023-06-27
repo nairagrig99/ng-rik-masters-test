@@ -7,7 +7,7 @@ import {
   Input,
   Output
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl} from "@angular/forms";
 
 @Component({
   selector: 'app-input-text',

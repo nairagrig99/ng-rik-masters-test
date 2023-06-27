@@ -65,6 +65,9 @@
   &_cart {
     margin-left: 40px;
     font-size: 13px;
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
 
     p:nth-child(1) {
       border-bottom: 1px solid #FFFFFF;
@@ -81,7 +84,6 @@
     span {
       font-weight: 300;
       font-size: 18px;
-
     }
 
     li:nth-child(1), li:nth-child(2) {

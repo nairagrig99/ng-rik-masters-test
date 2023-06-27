@@ -1,6 +1,8 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {role, status} from "../../../../shared/model";
+import {LocalService} from "../../../../services/local.service";
+import {StatusEnum} from "../../../../shared/enums/status.enum";
 
 
 @Component({
@@ -13,9 +15,11 @@ export class FilterComponent implements OnInit {
 
   public form: FormGroup;
   public status = status;
+  public statusEnum = StatusEnum;
   public role = role;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private localService: LocalService) {
   }
 
   ngOnInit(): void {
@@ -59,6 +63,18 @@ export class FilterComponent implements OnInit {
       dateOfChange: [null, Validators.required],
       status: [null, Validators.required],
       role: [null, Validators.required]
+    })
+  }
+
+  public blockOrUnlockUser(type: string): void {
+    this.localService.getLocalDate().forEach((user, index, array) => {
+      if (array[index].checked) {
+        array[index].status = type
+        this.localService.setLocalDate(array);
+        setTimeout(() => {
+          location.reload()
+        }, 1000)
+      }
     })
   }
 

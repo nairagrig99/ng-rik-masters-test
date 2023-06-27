@@ -20,5 +20,21 @@ body {
 }
 
 .mat-drawer-inner-container::-webkit-scrollbar {
-  display: none ;
+  display: none;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url('assets/images/svg/date.svg') no-repeat;
+  width: 20px;
+  height: 14px;
+  border-width: thin;
+}
+
+.mat-mdc-paginator-range-actions button {
+  display: none !important;
+}
+
+

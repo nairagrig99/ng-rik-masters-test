@@ -1,20 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from "../../../../services/user-service";
-import {map, switchMap} from "rxjs";
-import {UserListInterface} from "../../../../shared/interface/user-list.interface";
+import {map} from "rxjs";
+import {UserListItem} from "../../../../shared/interface/user-list.interface";
 import {StatusChangedEnum, StatusEnum} from "../../../../shared/enums/status.enum";
 import {RoleChangedEnum} from "../../../../shared/enums/role.enum";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {userTableColumns} from "../../../../shared/model";
 import {LocalService} from "../../../../services/local.service";
 import {UserDateMapperService} from "../../../../services/user-date-mapper.service";
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-user-list',
@@ -23,12 +17,15 @@ export interface PeriodicElement {
 })
 export class UserListComponent implements OnInit {
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   private roleChangedEnum = RoleChangedEnum;
 
   public statusEnum = StatusEnum;
   public statusChangedEnum = StatusChangedEnum;
+  public checkedUserCount: number = 0;
 
-  public usersList: UserListInterface[];
+  public usersList: UserListItem[] = [];
   public displayedColumns = userTableColumns;
 
   public userForm: FormGroup;
@@ -53,6 +50,7 @@ export class UserListComponent implements OnInit {
     this.initForm()
     this.selectAllChecked();
     this.selectedUser();
+    this.paginator._intl.itemsPerPageLabel = "Отображать";
   }
 
   public status(value: string): string {
@@ -60,7 +58,7 @@ export class UserListComponent implements OnInit {
   }
 
   public userRole(value: boolean): string {
-    return value === true ? this.roleChangedEnum.ADMINISTRATOR : this.roleChangedEnum.USER
+    return value ? this.roleChangedEnum.ADMINISTRATOR : this.roleChangedEnum.USER
   }
 
   private initForm(): void {
@@ -76,16 +74,22 @@ export class UserListComponent implements OnInit {
 
   private selectAllChecked(): void {
     this.checkAllControl?.valueChanges.subscribe((checked) => {
+      if (!checked) {
+        this.checkedUserCount = 0
+      }
       this.userControl?.patchValue(Array(this.usersList.length)
-        .fill(checked), {emitEvent: false});
+        .fill(checked), {emitEvent: true});
     })
   }
 
   private selectedUser(): void {
     this.userControl?.valueChanges.subscribe((checked) => {
+      this.updateLocalStorageDuringCheckedUser(checked);
       const isAllSelected = checked.every((bool: boolean) => !!bool);
+
       this.checkAllControl?.patchValue(isAllSelected, {emitEvent: false});
     })
+
   }
 
   private getUsersListFromLocalStorage(): void {
@@ -98,5 +102,16 @@ export class UserListComponent implements OnInit {
         this.mapperService.mapUserListGetFromApi(us))),
       map((userlist) => this.localDataService.setLocalDate(userlist))).subscribe()
   }
+
+  private updateLocalStorageDuringCheckedUser(checked: any): void {
+    const countOfCheckedUser = [];
+    checked.filter((isBool: boolean) => !!isBool).forEach((bool: boolean, index: number) => {
+      countOfCheckedUser.push(bool);
+      this.checkedUserCount = countOfCheckedUser.length
+      this.usersList[index].checked = true;
+      this.localDataService.setLocalDate(this.usersList);
+    })
+  }
+
 
 }

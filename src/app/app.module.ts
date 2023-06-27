@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {MainModule} from "./core/main.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskModule} from "ngx-mask";
+import {SharedModule} from "./shared/shared.module";
 
 const maskConfig: any = {
   validation: false,
@@ -26,6 +27,7 @@ const maskConfig: any = {
     MainModule,
     AppRoutingModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(maskConfig)
   ],

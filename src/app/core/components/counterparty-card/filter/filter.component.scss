@@ -12,8 +12,9 @@
     margin: 15px 30px;
 
     button {
-      background-color: lightgray;
+      background-color: gainsboro;
       margin-right: 15px;
+      margin-bottom: 15px;
 
       &:hover {
         background-color: red;
@@ -33,6 +34,9 @@
     display: flex;
     flex-wrap: wrap;
     padding: 16px;
+    @media screen and (max-width: 600px) {
+      justify-content: center;
+    }
   }
 }
 
@@ -41,8 +45,12 @@ mat-icon:not(.filter-icon) {
   border-radius: 50%
 }
 
-:host app-input-text, app-select {
+:host app-input-text {
   margin-right: 35px;
+}
+
+:host app-select {
+  margin-right: 16px;
 }
 
 mat-card-title {

@@ -6,12 +6,12 @@
       <mat-icon iconPositionEnd>add</mat-icon>
     </button>
 
-    <button mat-raised-button color="warn">
+    <button mat-raised-button color="warn" (click)="blockOrUnlockUser(statusEnum.ACTIVE)">
       Разблокировать
       <mat-icon iconPositionEnd>done</mat-icon>
     </button>
 
-    <button mat-raised-button color="warn">
+    <button mat-raised-button color="warn" (click)="blockOrUnlockUser(statusEnum.BLOCKED)">
       Заблокировать
       <mat-icon iconPositionEnd>close</mat-icon>
     </button>
@@ -31,6 +31,7 @@
     <mat-card-title>Фильтр</mat-card-title>
     <mat-card-content>
       <form class="field_form" [formGroup]="form">
+
         <app-input-text
           [label]="'Логин'"
           [formControl]="loginControl"
@@ -42,6 +43,7 @@
           [label]="'Телефон'"
           [controlType]="'text'"
           [isNumber]="true"
+          [formControl]="telControl"
         >
         </app-input-text>
         <app-input-text
@@ -50,6 +52,15 @@
           [formControl]="dateOfCreateControl"
         >
         </app-input-text>
+
+
+        <app-select
+          [label]="'Статус'"
+          [options]="status"
+          [formControl]="statusControl"
+        >
+        </app-select>
+
         <app-input-text
           [label]="'E-mail'"
           [controlType]="'email'"
@@ -60,35 +71,29 @@
         <app-select
           [label]="'Роль'"
           [options]="role"
-          [control]="roleControl"
-        >
-        </app-select>
-
-        <app-select
-          [label]="'Статус'"
-          [options]="status"
-          [control]="statusControl"
+          [formControl]="roleControl"
         >
         </app-select>
 
         <app-input-text
           [label]="'Дата изменения'"
           [controlType]="'date'"
+          [formControl]="dateOfChangeControl"
         >
         </app-input-text>
 
       </form>
     </mat-card-content>
     <div class="filter_bottom_side">
-      <button mat-raised-button>
+      <button mat-flat-button>
         Применить
       </button>
 
-      <button mat-raised-button>
+      <button mat-flat-button>
         Отмена
       </button>
 
-      <button mat-raised-button>
+      <button  mat-flat-button>
         Сбросить
       </button>
     </div>
