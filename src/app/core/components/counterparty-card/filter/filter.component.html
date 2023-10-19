@@ -1,10 +1,6 @@
 <section class="filter">
 
   <div class="filter_left_side">
-    <button mat-raised-button color="warn">
-      Добавить
-      <mat-icon iconPositionEnd>add</mat-icon>
-    </button>
 
     <button mat-raised-button color="warn" (click)="blockOrUnlockUser(statusEnum.ACTIVE)">
       Разблокировать
@@ -53,14 +49,13 @@
         >
         </app-input-text>
 
-
         <app-select
           [label]="'Статус'"
           [options]="status"
           [formControl]="statusControl"
+          (findSelectedOption)="selectedValue($event,'status')"
         >
         </app-select>
-
         <app-input-text
           [label]="'E-mail'"
           [controlType]="'email'"
@@ -72,6 +67,7 @@
           [label]="'Роль'"
           [options]="role"
           [formControl]="roleControl"
+          (findSelectedOption)="selectedValue($event,'role')"
         >
         </app-select>
 
@@ -85,22 +81,16 @@
       </form>
     </mat-card-content>
     <div class="filter_bottom_side">
-      <button mat-flat-button>
+      <button (click)="search()" mat-flat-button>
         Применить
       </button>
-
       <button mat-flat-button>
-        Отмена
-      </button>
-
-      <button  mat-flat-button>
         Сбросить
       </button>
     </div>
   </mat-card>
 
 </section>
-
 <section>
-  <app-user-list></app-user-list>
+  <app-user-list [usersList]="usersList"></app-user-list>
 </section>

@@ -14,13 +14,13 @@ export interface UserListItem {
   id: number,
   name: string,
   email: string,
-  phone: number,
-  role:string,
-  status:string,
+  phone: string,
+  role: string,
+  status: string,
   create_at: Date,
   update_at: Date,
-  ept:boolean,
-  checked?:boolean
+  ept: boolean,
+  checked?: boolean
 }
 
 export interface Data {

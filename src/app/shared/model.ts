@@ -1,13 +1,13 @@
 import {CurrentUserInterface} from "./interface/current-user.interface";
 
 export const status = [
-  {id: 1, displayName: 'Активен', value: 'Активен'},
-  {id: 2, displayName: 'Заблокирован', value: 'Заблокирован'}
+  {id: 1, displayName: 'Активен', value: 'ACTIVE'},
+  {id: 2, displayName: 'Заблокирован', value: 'BLOCKED'}
 ]
 
 export const role = [
-  {id: 1, displayName: 'Администратор', value: 'Администратор'},
-  {id: 2, displayName: 'Пользователь', value: 'Пользователь'}
+  {id: 1, displayName: 'Администратор', value: true},
+  {id: 2, displayName: 'Пользователь', value: false}
 ]
 
 export const user: CurrentUserInterface = {

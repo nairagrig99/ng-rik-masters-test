@@ -16,6 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {LocalService} from "../services/local.service";
 import {UserDateMapperService} from "../services/user-date-mapper.service";
 import {UserService} from "../services/user-service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {UserService} from "../services/user-service";
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [LocalService, UserDateMapperService, UserService]
 })

@@ -72,6 +72,7 @@ export class InputTextComponent implements ControlValueAccessor {
 
   public removeInputValue(): void {
     this.model = "";
+    this.onChange(this.model);
   }
 
   public modelChange(event: any): void {
@@ -80,7 +81,7 @@ export class InputTextComponent implements ControlValueAccessor {
 
   get maskChoose(): string {
     if (this.isNumber) {
-      this.prefix = '+7'
+      this.prefix = '+7';
       return '(0{3}) 0{3} - 0{2} - 0{2}'
     }
     return '';

@@ -8,6 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {HttpClientModule} from "@angular/common/http";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [InputTextComponent, SelectComponent],
@@ -23,7 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
   ]
 })
 export class SharedModule {

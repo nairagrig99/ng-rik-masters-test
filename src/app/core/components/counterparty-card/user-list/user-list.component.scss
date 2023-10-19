@@ -85,5 +85,17 @@ input[type=checkbox] {
 
 mat-paginator {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
+}
+
+.not-found-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background: #DA2032;
+  color: white;
 }

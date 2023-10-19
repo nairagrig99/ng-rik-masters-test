@@ -3,7 +3,7 @@
     <div class="mat-card-block">
       <mat-paginator #paginator
                      [length]="100"
-                     [pageSize]="usersList.length"
+                     [pageSize]="usersList?.length"
                      [pageSizeOptions]="[5, 10, 25, 100]">
       </mat-paginator>
       <div>
@@ -12,7 +12,9 @@
     </div>
   </mat-card>
   <div style="overflow: auto">
-    <table mat-table [dataSource]="usersList" class="mat-elevation-z8 user-list_table">
+
+    <table mat-table *ngIf="!!usersList?.length;else notFoundUser" [dataSource]="usersList"
+           class="mat-elevation-z8 user-list_table">
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Действия</th>
@@ -22,11 +24,11 @@
       </ng-container>
 
       <ng-container matColumnDef="login">
-        <form [formGroup]="userForm">
+        <form *ngIf="!!usersList?.length" [formGroup]="userForm">
           <th mat-header-cell *matHeaderCellDef>
             <div class="checkbox">
               <label class="main">
-                <input type="checkbox" [formControl]="checkAllControl" (change)="selectViewable($event)">
+                <input type="checkbox" [formControl]="checkAllControl">
                 <span class="geekmark"></span>
               </label>
               Логин
@@ -91,13 +93,18 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <ng-template #notFoundUser>
+     <div class="not-found-user" > <span >Пользователи не найдены</span></div>
+    </ng-template>
+
   </div>
   <mat-card>
     <div class="mat-card-block">
       <mat-paginator
         #paginator
         [length]="100"
-        [pageSize]="usersList.length"
+        [pageSize]="usersList?.length "
         [pageSizeOptions]="[5, 10, 25, 100]">
       </mat-paginator>
       <div>
